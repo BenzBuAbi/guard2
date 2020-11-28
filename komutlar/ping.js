@@ -1,25 +1,17 @@
-const Discord = require("discord.js");
+const Discord = require('discord.js')
 
+exports.run = async(client, message ) => {
 
-exports.run = async (client, message, args) => {
-
-  
-const exampleEmbed = new Discord.MessageEmbed()
-  .addField(`Pingim` ,`${client.ws.ping}ms`)
-  message.channel.send(exampleEmbed)
-  
-  
-}
-  
+const ping = new Discord.MessageEmbed()
+.setTitle('Ping Pong')
+.setDescription(`Karşında Pingim! : ${client.ws.ping}`) 
+.setFooter('Ping Pong!')
+return message.channel.send(ping)
+};
 exports.conf = {
-  enabled: true,
-  guildOnly: false,
   aliases: [],
   permLevel: 0
 };
-
 exports.help = {
-  name: 'ping',
-  description: 'Ping(Bunuda Almayında)',
-  usage: 'ping'
+  name: 'ping'
 }; 

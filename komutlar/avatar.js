@@ -1,26 +1,19 @@
-const Discord = require("discord.js");
+const Discord = require('discord.js');
 
-
-exports.run = async (client, message, args) => {
+exports.run = (client, message, args) => {
+  let kişicikabi = message.mentions.users.first() || message.author
+ let avatarcım = new Discord.MessageEmbed()
   
-let user = message.mentions.users.first() || message.author  
+  .setImage(kişicikabi.avatarURL())
   
-const exampleEmbed = new Discord.MessageEmbed()
- .setImage(user.avatarURL())
-  message.channel.send(exampleEmbed)
+  message.channel.send(avatarcım)
   
-  
-}
-  
-exports.conf = {
-  enabled: true,
-  guildOnly: false,
-  aliases: [],
-  permLevel: 0
-};
-
-exports.help = {
-  name: 'avatar',
-  description: 'Otorol sistemini ayarlamaya yarar.',
-  usage: '-otorol-ayarla @rol #kanal'
-}; 
+  };
+ exports.conf = {
+   
+   aliases: [],
+   permLevel: 0
+ };
+ exports.help = {
+   name: 'avatar'
+ };
